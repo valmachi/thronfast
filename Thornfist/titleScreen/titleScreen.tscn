@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/thronfestlogo.png" type="Texture" id=1]
+[ext_resource path="res://titleScreen/Buttons/newGame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://titleScreen/Buttons/optionButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://titleScreen/Buttons/continueButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/thornfistBaby.png" type="Texture" id=5]
+[ext_resource path="res://Font/TF2secondary.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://fade_in/fadeIn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://titleScreen/title_screen.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 6 )
+
+[node name="titleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1160.0
+margin_bottom = 640.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="TextureRect" parent="Menu"]
+margin_right = 1040.0
+margin_bottom = 250.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 254.0
+margin_right = 1040.0
+margin_bottom = 474.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
+margin_right = 518.0
+margin_bottom = 220.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="continueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
+margin_right = 518.0
+margin_bottom = 60.0
+action_mode = 0
+
+[node name="newGame" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
+margin_top = 80.0
+margin_right = 518.0
+margin_bottom = 140.0
+action_mode = 0
+
+[node name="optionButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
+margin_top = 160.0
+margin_right = 518.0
+margin_bottom = 220.0
+action_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
+margin_left = 522.0
+margin_right = 1040.0
+margin_bottom = 220.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="characters" type="TextureRect" parent="Menu/CenterRow/CenterContainer"]
+margin_left = 226.0
+margin_top = 30.0
+margin_right = 292.0
+margin_bottom = 190.0
+texture = ExtResource( 5 )
+
+[node name="versionLabel" type="Label" parent="Menu"]
+margin_top = 478.0
+margin_right = 1040.0
+margin_bottom = 560.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Version 0.0.1 
+Swamp Monster Studios"
+align = 1
+
+[node name="fadeIn" parent="." instance=ExtResource( 7 )]
